@@ -81,3 +81,14 @@ body{
     cursor: pointer;
 }
 
+/*Estilos mensaje de error*/
+
+.msgrojo{
+    background-color: red;
+    color: black;
+}
+
+.msgverde{
+    background-color: green;
+    color: black;
+}

@@ -1,15 +1,19 @@
 {{app-menu}}
 <h1>Calculadora</h1>
 
-<div>{{#if messageerror}}
-        <p>error</p>
-    {{/if}}
-</div>
+{{#if msgcolor}}
+    <div class="msgrojo">{{messagerror}}</div>
+{{else}}
+    <div class="msgverde">{{messagerror}}</div>
+{{/if}}
 
-<form {{action 'sum' on='submit'}}>
+<form on='submit'>
     {{input value=n1 placeholder='Enter a number'}}
     {{input value=n2 placeholder='Enter a number'}}
-    <button type="submit">Sumar</button>
+    <button type="submit" {{action 'sum'}}>Sumar</button>
+    <button type="submit" {{action 'resta'}}>Restar</button>
 </form>
+
+<div>{{resultado}}</div>
 
 {{outlet}}

@@ -2,6 +2,15 @@ import Route from '@ember/routing/route';
 import { inject as service} from '@ember/service';
 
 export default Route.extend({
+    
+    model() {
+        return {
+             error : null,
+             rsulop : null,
+             msgcolor: false,
+        };
+    },
+
     singservice : service('sing-service'),
 
     beforeModel(){
