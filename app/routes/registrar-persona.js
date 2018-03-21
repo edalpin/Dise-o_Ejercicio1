@@ -12,7 +12,7 @@ export default Route.extend({
     },
 
     beforeModel(){
-        if(this.get('singservice').control){
+        if(localStorage.getItem('controlSession')){
             this.replaceWith('registrar_persona');
         }
         else{

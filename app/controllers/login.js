@@ -28,6 +28,10 @@ export default Controller.extend({
                 this.set('password',"");
             } else {
                 this.get('singService').setControlSession(true,identification);
+                localStorage.setItem("controlSession", true);
+                localStorage.setItem("username", identification);
+                this.set('identification',"");
+                this.set('password',"");
                 this.transitionToRoute('home');
             }
         }
