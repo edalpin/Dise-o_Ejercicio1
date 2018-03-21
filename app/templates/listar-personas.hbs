@@ -1,3 +1,11 @@
 {{app-menu}}
 <h1>Listar personas</h1>
+{{#each model as |people|}}
+    <p><strong>Nombre: </strong>{{people.name}}</p>
+    <p><strong>Salario: </strong>{{people.salary}}</p>
+    <p><strong>Sexo: </strong>{{people.gender}}</p>
+    <hr>
+    
+{{/each}}
+
 {{outlet}}

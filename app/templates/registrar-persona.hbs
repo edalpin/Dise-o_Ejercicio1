@@ -1,3 +1,20 @@
 {{app-menu}}
-<h1>Registrar personas</h1>
+<h1>Registrar persona</h1>
+
+{{#if msgcolor}}
+    <div class="msgrojo">{{message}}</div>
+{{else}}
+    <div class="msgverde">{{message}}</div>
+{{/if}}
+
+<form {{action 'register' on='submit'}}>
+    <label for="name">Name</label>
+    {{input value=name placeholder='Enter name'}}
+    <label for="salary">Salary</label>
+    {{input value=salary placeholder='Enter Salary'}}
+    <label for="gender">Gender [M | F]</label>
+    {{input value=gender placeholder='Enter Gender'}}
+    <button type="submit">Register</button>
+</form>
+
 {{outlet}}

@@ -23,12 +23,29 @@ export default Service.extend({
             contrasena: '123'
         },
     ],
+
+    people: [
+        {
+            name:"yo",
+            salary:"1000",
+            gender:"M",
+        },
+    ],
+
     /*
     ct: true,
     cf: false,
     */
     getUsers() {
         return this.users;
+    },
+
+    getPeople() {
+        return this.people;
+    },
+
+    updatePeople(item){
+        this.get('people').pushObject(item);
     },
     /*
     getAuthentication(id, pass) {

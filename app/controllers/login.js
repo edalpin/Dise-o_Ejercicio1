@@ -24,7 +24,7 @@ export default Controller.extend({
             if(identification == null || password==null){
                 this.set('model.error',"No se han ingresado datos");
             }else if(!search || search.contrasena !== password){
-                this.set('model.error',"Usuario o contraseña incorrectos");
+                this.set('model.error',"Usuario inexistente o contraseña incorrecta");
                 this.set('password',"");
             } else {
                 this.get('singService').setControlSession(true,identification);
