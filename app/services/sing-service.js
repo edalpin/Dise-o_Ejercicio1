@@ -1,13 +1,15 @@
 import Service from '@ember/service';
 
 export default Service.extend({
-    control : true,
+    control : false,
+    user: null,
 
     getControl(){
         return this.control
     },
 
-    setControl(value){
-        return this.control=value
+    setControlSession(control,user){
+        this.control=control;
+        this.user=user;
     },
 });

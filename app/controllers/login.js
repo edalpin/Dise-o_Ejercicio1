@@ -1,9 +1,14 @@
-import Component from '@ember/component';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default Component.extend({
+export default Controller.extend({
     singService: service('sing-service'),
     usersService: service('mock-service'),
+
+    message : computed('model.error',function(){
+        return this.get('model.error');
+    }),
 
     actions: {
         authenticate() {
@@ -11,15 +16,19 @@ export default Component.extend({
             let { identification, password } = this.getProperties('identification', 'password');
 
             /*console.log(this.get('usersService').getAuthentication(this.identification,this.password));
-
             if(this.get('usersService').getAuthentication(this.identification,this.password)==0){
                 console.log('entre');
             };*/
           
             var search = users.findBy('usuario',identification);
-            if(!search || search.contrasena !== password){
+            if(identification == null || password==null){
+                this.set('model.error',"No se han ingresado datos");
+            }else if(!search || search.contrasena !== password){
+                this.set('model.error',"Usuario o contraseña incorrectos");
+                this.set('password',"");
             } else {
                 this.get('singService').setControlSession(true,identification);
+                this.transitionToRoute('home');
             }
         }
     }

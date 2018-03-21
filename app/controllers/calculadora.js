@@ -3,18 +3,6 @@ import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-    /*singservice : service('sing-service'),
-
-    session : computed(function(){
-        return this.get('singservice').getControl();
-    }),
-
-    actions:{
-        getControl(){
-            return this.session;
-        }
-    }*/
-
     messagerror: computed('model.error', function () {
         return this.get('model.error');
     }),
@@ -47,7 +35,7 @@ export default Controller.extend({
             } else{
                 this.set('model.error', "Operacion realizada");
                 this.set('model.msgcolor', false);
-                var suma = parseInt(n1) + parseInt(n2) ;
+                var suma = parseFloat(n1) + parseFloat(n2) ;
                 this.set('model.rsulop', "La suma es " + suma);  
             }
         },
@@ -68,7 +56,7 @@ export default Controller.extend({
             } else{
                 this.set('model.error', "Operacion realizada");
                 this.set('model.msgcolor', false);
-                var resta =parseInt(n1) - parseInt(n2) ;
+                var resta =parseFloat(n1) - parseFloat(n2) ;
                 this.set('model.rsulop', "La resta es " + resta);
             }
         }
